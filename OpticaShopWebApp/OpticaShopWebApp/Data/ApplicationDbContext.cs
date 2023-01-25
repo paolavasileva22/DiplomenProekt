@@ -11,6 +11,7 @@ namespace OpticaShopWebApp.Data
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
         {
+            this.Database.EnsureCreated();
         }
     }
 }
