@@ -45,9 +45,6 @@
                         <a id="resend-confirmation" asp-page="./ResendEmailConfirmation">Resend email confirmation</a>
                     </p>
                 </div>
-
-
-
             </form>
         </section>
     </div>
@@ -58,9 +55,6 @@
             @{
                 if ((Model.ExternalLogins?.Count ?? 0) == 0)
                 {
-                    <header style="background-image: url('https://i.pinimg.com/564x/9f/2d/eb/9f2deb0208f56d74846395957177af30.jpg') ">
-                        <div style="height: 21.5rem"></div>
-                    </header>
                     <div>
                         <p>
                             There are no external authentication services configured. See <a href="https://go.microsoft.com/fwlink/?LinkID=532715">this article</a>

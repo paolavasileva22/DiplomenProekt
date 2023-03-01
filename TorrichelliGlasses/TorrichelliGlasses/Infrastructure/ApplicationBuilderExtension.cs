@@ -25,47 +25,9 @@ namespace TorrichelliGlasses.Infrastructure
             SeedCategories(dataCategory);
 
             var dataBrand = serviceScope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-            SeedCategories(dataBrand);
+            SeedBrands(dataBrand);
 
             return app;
-        }
-
-        private static void SeedCategories(ApplicationDbContext data)
-        {
-            if (data.Categories.Any())
-            {
-                return;
-            }
-            data.Categories.AddRange(new[]
-            {
-                new Category {CategoryName="Dioptric Glasses"},
-                new Category {CategoryName="Sunglasses"},
-                new Category {CategoryName="Accessories"}
-            });
-            data.SaveChanges();
-        }
-
-        private static void SeedBrands(ApplicationDbContext data)
-        {
-            if (data.Brands.Any())
-            {
-                return;
-            }
-            data.Brands.AddRange(new[]
-            {
-                new Brand {BrandName="Armani"},
-                new Brand {BrandName="Dolce & Gabbana"},
-                new Brand {BrandName="RayBan"},
-                new Brand {BrandName="Prada"},
-                new Brand {BrandName="Versace"},
-                new Brand {BrandName="Vogue"},
-                new Brand {BrandName="Tom Ford"},
-                new Brand {BrandName="Ralph"},
-                new Brand {BrandName="Tiffany & Co."},
-                new Brand {BrandName="Swarovski"}
-
-            });
-            data.SaveChanges();
         }
 
         private static async Task RoleSeeder(IServiceProvider serviceProvider)
@@ -86,6 +48,7 @@ namespace TorrichelliGlasses.Infrastructure
                 }
             }
         }
+
         private static async Task SeedAdministrator(IServiceProvider serviceProvider)
         {
             var userManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
@@ -93,8 +56,8 @@ namespace TorrichelliGlasses.Infrastructure
             if (await userManager.FindByNameAsync("admin") == null)
             {
                 ApplicationUser user = new ApplicationUser();
-                user.FirstName = "Paola";
-                user.LastName = "Vasileva";
+                user.FirstName = "admin";
+                user.LastName = "admin";
                 user.PhoneNumber = "0885556549";
                 user.UserName = "admin";
                 user.Email = "admin@admin.com";
@@ -107,6 +70,41 @@ namespace TorrichelliGlasses.Infrastructure
                     userManager.AddToRoleAsync(user, "Administrator").Wait();
                 }
             }
+        }
+        private static void SeedCategories(ApplicationDbContext dataCategory)
+        {
+            if (dataCategory.Categories.Any())
+            {
+                return;
+            }
+            dataCategory.Categories.AddRange(new[]
+            {
+                new Category {CategoryName="Dioptric glasses"},
+                new Category {CategoryName="Sunglasses"},
+                new Category {CategoryName="Accessories"}
+            });
+            dataCategory.SaveChanges();
+        }
+        private static void SeedBrands(ApplicationDbContext dataBrand)
+        {
+            if (dataBrand.Brands.Any())
+            {
+                return;
+            }
+            dataBrand.Brands.AddRange(new[]
+            {
+                new Brand {BrandName="Armani"},
+                new Brand {BrandName="Dolce & Gabbana"},
+                new Brand {BrandName="RayBan"},
+                new Brand {BrandName="Prada"},
+                new Brand {BrandName="Versace"},
+                new Brand {BrandName="Vogue"},
+                new Brand {BrandName="Tom Ford"},
+                new Brand {BrandName="Ralph"},
+                new Brand {BrandName="Tiffany & Co."},
+                new Brand {BrandName="Swarovski"}
+            });
+            dataBrand.SaveChanges();
         }
     }
 }

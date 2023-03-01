@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using TorrichelliGlasses.Domain;
+using TorrichelliGlasses.Models.Product;
 
 namespace TorrichelliGlasses.Data
 {
@@ -18,5 +19,10 @@ namespace TorrichelliGlasses.Data
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set; }
+        public DbSet<TorrichelliGlasses.Models.Product.ProductCreateVM> ProductCreateVM { get; set; }
+        public DbSet<TorrichelliGlasses.Models.Product.ProductIndexVM> ProductIndexVM { get; set; }
+        public DbSet<TorrichelliGlasses.Models.Product.ProductEditVM> ProductEditVM { get; set; }
+        public DbSet<TorrichelliGlasses.Models.Product.ProductDetailsVM> ProductDetailsVM { get; set; }
+        public DbSet<TorrichelliGlasses.Models.Product.ProductDeleteVM> ProductDeleteVM { get; set; }
     }
 }

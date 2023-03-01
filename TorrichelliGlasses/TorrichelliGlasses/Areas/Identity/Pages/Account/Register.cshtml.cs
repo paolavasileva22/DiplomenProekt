@@ -23,18 +23,19 @@ namespace TorrichelliGlasses.Areas.Identity.Pages.Account
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly ILogger<RegisterModel> _logger;
-        //private readonly IEmailSender _emailSender;
+        // private readonly IEmailSender _emailSender;
 
         public RegisterModel(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
-            ILogger<RegisterModel> logger)
-        //IEmailSender emailSender)
+            ILogger<RegisterModel> logger//,
+                                         // IEmailSender emailSender
+           )
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
-            //_emailSender = emailSender;
+            // _emailSender = emailSender;
         }
 
         [BindProperty]
@@ -47,22 +48,19 @@ namespace TorrichelliGlasses.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
+
             [Display(Name = "FirstName")]
             public string FirstName { get; set; }
-
             [Required]
+
             [Display(Name = "LastName")]
             public string LastName { get; set; }
-
             [Required]
+
             [Display(Name = "Address")]
             public string Address { get; set; }
-
             [Required]
-            [Display(Name = "PhoneNumber")]
-            public string PhoneNumber { get; set; }
 
-            [Required]
             [Display(Name = "UserName")]
             public string UserName { get; set; }
             [Required]
@@ -99,7 +97,6 @@ namespace TorrichelliGlasses.Areas.Identity.Pages.Account
                     FirstName = Input.FirstName,
                     LastName = Input.LastName,
                     Address = Input.Address,
-                    PhoneNumber = Input.PhoneNumber,
                     UserName = Input.UserName,
                     Email = Input.Email
                 };
@@ -117,8 +114,8 @@ namespace TorrichelliGlasses.Areas.Identity.Pages.Account
                         values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
                         protocol: Request.Scheme);
 
-                    //await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
-                    //    $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
+                    // await _emailSender.SendEmailAsync(Input.Email, "Confirm your email",
+                    //   $"Please confirm your account by <a href='{HtmlEncoder.Default.Encode(callbackUrl)}'>clicking here</a>.");
 
                     if (_userManager.Options.SignIn.RequireConfirmedAccount)
                     {
