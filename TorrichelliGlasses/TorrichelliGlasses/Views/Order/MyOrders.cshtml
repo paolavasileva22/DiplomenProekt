@@ -23,15 +23,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.OrderDate)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.UserId)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.User)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.ProductId)
-            </th>
+            </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Product)
             </th>
@@ -60,15 +60,15 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.OrderDate)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.UserId)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.User)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.ProductId)
-                </td>
+                </td>*@
                 <td>
                     @Html.DisplayFor(modelItem => item.Product)
                 </td>
@@ -87,11 +87,11 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.TotalPrice)
                 </td>
-                <td>
+                @*<td>
                     <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
                     <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
+                </td>*@
             </tr>
         }
     </tbody>
