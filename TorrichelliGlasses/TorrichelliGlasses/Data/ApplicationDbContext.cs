@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using TorrichelliGlasses.Domain;
 using TorrichelliGlasses.Models.Product;
+using TorrichelliGlasses.Models.Client;
 
 namespace TorrichelliGlasses.Data
 {
@@ -24,5 +25,6 @@ namespace TorrichelliGlasses.Data
         public DbSet<TorrichelliGlasses.Models.Product.ProductEditVM> ProductEditVM { get; set; }
         public DbSet<TorrichelliGlasses.Models.Product.ProductDetailsVM> ProductDetailsVM { get; set; }
         public DbSet<TorrichelliGlasses.Models.Product.ProductDeleteVM> ProductDeleteVM { get; set; }
+        public DbSet<TorrichelliGlasses.Models.Client.ClientDeleteVM> ClientDeleteVM { get; set; }
     }
 }

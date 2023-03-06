@@ -33,7 +33,7 @@ namespace TorrichelliGlasses.Controllers
             return View();
         }
 
-        public IActionResult ForUs()
+        public IActionResult AboutUs()
         {
             return View();
         }
