@@ -16,7 +16,7 @@ namespace TorrichelliGlasses.Services
         }
         public int CountClients()
         {
-            return _context.Products.Count();
+            return _context.Users.Count() - 1;
         }
         public int CountOrders()
         {
@@ -26,7 +26,7 @@ namespace TorrichelliGlasses.Services
         // Връща броя на потребителите на приложението без админа
         public int CountProducts()
         {
-            return _context.Users.Count() - 1;
+            return _context.Products.Count();
         }
 
         //връща общата печалба от направените поръчки

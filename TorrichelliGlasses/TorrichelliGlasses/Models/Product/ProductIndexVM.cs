@@ -21,6 +21,7 @@ namespace TorrichelliGlasses.Models.Product
         public int CategoryId { get; set; }
         [Display(Name = "Category")]
         public string CategoryName { get; set; }
+        public string Description { get; set; }
 
         [Display(Name = "Picture")]
         public string Picture { get; set; }

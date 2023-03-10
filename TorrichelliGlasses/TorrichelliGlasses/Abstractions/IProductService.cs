@@ -9,10 +9,10 @@ namespace TorrichelliGlasses.Abstractions
     public interface IProductService
     {
         bool Create(string name, int brandId,
-            int categoryId, string picture, int quantity, decimal price, decimal discount);
-        bool Update(int productId, string name, int brandId, int categoryId, string picture, int quantity, decimal price, decimal discount);
+            int categoryId, string description, string picture, int quantity, decimal price, decimal discount);
+        bool Update(int productId, string name, int brandId, int categoryId, string description, string picture, int quantity, decimal price, decimal discount);
 
-        List<Product> GetProduct();
+        List<Product> GetProducts();
         Product GetProductById(int productId);
         bool RemoveById(int productId);
         List<Product> GetProducts(string searchStringCategoryName, string searchStringBrandName);

@@ -33,6 +33,9 @@ namespace TorrichelliGlasses.Models.Product
         public int CategoryId { get; set; }
         public virtual List<CategoryPairVM> Categories { get; set; }
 
+        [Display(Name = "Description")]
+        public string Description { get; set; }
+
         [Display(Name = "Picture")]
         public string Picture { get; set; }
 

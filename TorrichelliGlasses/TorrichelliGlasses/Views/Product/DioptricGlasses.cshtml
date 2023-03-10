@@ -1,0 +1,116 @@
+﻿@using TorrichelliGlasses.Models.Order
+@model IEnumerable<TorrichelliGlasses.Models.Product.ProductIndexVM>
+
+@{
+    ViewData["Title"] = "Dioptric Glasses";
+}
+
+<center><h1>Dioptric Glasses</h1></center>
+<br />
+@if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
+{<p>
+        <a asp-action="Create">Create new product</a>
+    </p>
+}
+
+
+
+
+<table class="table table-striped">
+    <thead class="table-info">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            @*
+                <th>
+                    @Html.DisplayNameFor(model => model.BrandId)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.BrandName)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.CategoryId)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Picture)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discount)
+            </th>
+            @if (this.User.Identity.IsAuthenticated)
+            {
+                <th>
+                    Order
+                </th>
+            }
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.BrandId)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.BrandName)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.CategoryId)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoryName)
+                </td>
+                <td>
+                    <img src="@Html.DisplayFor(modelItem => item.Picture)" alt="Image" width="100px" />
+                    @*@Html.DisplayFor(modelItem => item. Picture)*@
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Quantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discount) %
+                </td>
+                @if (this.User.Identity.IsAuthenticated)
+                {
+                    <td>
+                        @await Html.PartialAsync("_OrderPartialView", new OrderConfirmVM
+                        {
+                          ProductId = item.Id
+                        })
+                    </td>
+                }
+                <td>
+                    @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
+                    {
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                    }
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                    @if ((this.User.Identity.IsAuthenticated) && (this.User.IsInRole("Administrator")))
+                    {
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

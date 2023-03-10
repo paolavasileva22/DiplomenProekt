@@ -99,10 +99,7 @@ namespace TorrichelliGlasses.Infrastructure
                 new Brand {BrandName="Prada"},
                 new Brand {BrandName="Versace"},
                 new Brand {BrandName="Vogue"},
-                new Brand {BrandName="Tom Ford"},
-                new Brand {BrandName="Ralph"},
-                new Brand {BrandName="Tiffany & Co."},
-                new Brand {BrandName="Swarovski"}
+                new Brand {BrandName="Tom Ford"}
             });
             dataBrand.SaveChanges();
         }

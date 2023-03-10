@@ -53,7 +53,7 @@ namespace TorrichelliGlasses.Controllers
             if (ModelState.IsValid)
             {
                 var createdId = productService.Create(product.ProductName, product.BrandId,
-                                                       product.CategoryId, product.Picture,
+                                                       product.CategoryId, product.Description, product.Picture, 
                                                        product.Quantity, product.Price,
                                                        product.Discount);
                 if (createdId)
@@ -86,6 +86,78 @@ namespace TorrichelliGlasses.Controllers
             return this.View(products);
         }
 
+        [AllowAnonymous]
+        public ActionResult DioptricGlasses()
+        {
+            //  var products = productService.GetProducts(searchStringCategoryName, searchStringBrandName).Where(x => x.Category.CategoryName == "Всекидневна").ToList();
+
+            List<ProductIndexVM> products = productService.GetProducts()
+            .Select(product => new ProductIndexVM()
+            {
+                Id = product.Id,
+                ProductName = product.ProductName,
+                BrandId = product.BrandId,
+                BrandName = product.Brand.BrandName,
+                CategoryId = product.CategoryId,
+                CategoryName = product.Category.CategoryName,
+                Picture = product.Picture,
+                Quantity = product.Quantity,
+                Price = product.Price,
+                Discount = product.Discount
+
+            }).Where(x => x.CategoryName == "Dioptric Glasses").ToList();
+
+            return this.View(products);
+        }
+
+        [AllowAnonymous]
+        public ActionResult Sunglasses()
+        {
+            //  var products = productService.GetProducts(searchStringCategoryName, searchStringBrandName).Where(x => x.Category.CategoryName == "Всекидневна").ToList();
+
+            List<ProductIndexVM> products = productService.GetProducts()
+            .Select(product => new ProductIndexVM()
+            {
+                Id = product.Id,
+                ProductName = product.ProductName,
+                BrandId = product.BrandId,
+                BrandName = product.Brand.BrandName,
+                CategoryId = product.CategoryId,
+                CategoryName = product.Category.CategoryName,
+                Picture = product.Picture,
+                Quantity = product.Quantity,
+                Price = product.Price,
+                Discount = product.Discount
+
+            }).Where(x => x.CategoryName == "Sunglasses").ToList();
+
+            return this.View(products);
+        }
+
+        [AllowAnonymous]
+        public ActionResult Accessories()
+        {
+            //  var products = productService.GetProducts(searchStringCategoryName, searchStringBrandName).Where(x => x.Category.CategoryName == "Всекидневна").ToList();
+
+            List<ProductIndexVM> products = productService.GetProducts()
+            .Select(product => new ProductIndexVM()
+            {
+                Id = product.Id,
+                ProductName = product.ProductName,
+                BrandId = product.BrandId,
+                BrandName = product.Brand.BrandName,
+                CategoryId = product.CategoryId,
+                CategoryName = product.Category.CategoryName,
+                Picture = product.Picture,
+                Quantity = product.Quantity,
+                Price = product.Price,
+                Discount = product.Discount
+
+            }).Where(x => x.CategoryName == "Accessories").ToList();
+
+            return this.View(products);
+        }
+
         // GET: ProductController/Edit
         public IActionResult Edit(int id)
         {
@@ -102,6 +174,7 @@ namespace TorrichelliGlasses.Controllers
                 //BrandName = product.Brand.BrandName,
                 CategoryId = product.CategoryId,
                 //CategoryName = product.Category.CategoryName,
+                Description = product.Description,
                 Picture = product.Picture,
                 Quantity = product.Quantity,
                 Price = product.Price,
@@ -133,7 +206,7 @@ namespace TorrichelliGlasses.Controllers
                 if (ModelState.IsValid)
                 {
                     var updated = productService.Update(id, product.ProductName, product.BrandId,
-                                                            product.CategoryId, product.Picture,
+                                                            product.CategoryId, product.Description, product.Picture,
                                                             product.Quantity, product.Price, product.Discount);
                     if (updated)
                     {
@@ -161,6 +234,7 @@ namespace TorrichelliGlasses.Controllers
                 BrandName = item.Brand.BrandName,
                 CategoryId = item.CategoryId,
                 CategoryName = item.Category.CategoryName,
+                Description = item.Description,
                 Picture = item.Picture,
                 Quantity = item.Quantity,
                 Price = item.Price,
@@ -185,6 +259,7 @@ namespace TorrichelliGlasses.Controllers
                 BrandName = item.Brand.BrandName,
                 CategoryId = item.CategoryId,
                 CategoryName = item.Category.CategoryName,
+                Description = item.Description,
                 Picture = item.Picture,
                 Quantity = item.Quantity,
                 Price = item.Price,

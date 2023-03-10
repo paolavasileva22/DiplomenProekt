@@ -4,8 +4,7 @@
     ViewData["Title"] = "MyOrders";
 }
 
-<h1>My Orders</h1>
-
+<center><h1>My Orders</h1></center>
 <p>
     <a asp-controller="Product" asp-action="Index">Back to Products</a>
 </p>
@@ -18,7 +17,7 @@
 </form>
 
 <table class="table">
-    <thead>
+    <thead class="table-info">
         <tr>
             <th>
                 @Html.DisplayNameFor(model => model.OrderDate)
